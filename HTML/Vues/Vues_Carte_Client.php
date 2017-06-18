@@ -1,8 +1,6 @@
 <html lang="fr">
     <head>
-        <?php
-            require_once './src/view/header.php';
-        ?>
+      <p> Cartes </p>
     </head>
         <body>
         	<?php require_once './src/view/menu.php'; ?>
