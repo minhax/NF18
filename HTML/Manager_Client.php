@@ -8,7 +8,6 @@
       if (isset($_POST['nom']) && isset($_POST['fonction'])) {
       	// on propose les choix en fction du poste
         if($_POST['fonction']="Manager" || $_POST['fonction'] =="manager"){
-          <p><a href="Vues/REMPLIRAVECVUEMANAGER">Gestion du personnel</a><br /></p>
             <p><a href="Vues/REMPLIRAVECVUEMANAGER">Edition des cartes</a><br /></p>
               <p><a href="Vues/Statistiques.php"> Statistiques</a><br /></p>
         }
