@@ -50,7 +50,7 @@ CREATE TABLE Menu(
 );
 
 
-CREATE TYPE Choix AS ENUM ('Plat Principal', 'Entrée','Dessert');
+CREATE TYPE Choix AS ENUM ('Plat Principal', 'Entree','Dessert');
 
 
 CREATE TABLE Plat(
@@ -89,18 +89,13 @@ CREATE TABLE Prix(
 );
 
 CREATE TABLE Ingredients (
-	Nom VARCHAR(50) PRIMARY KEY, 
+	Nom VARCHAR(50) PRIMARY KEY,
 	Solide bool
 );
 
 CREATE TABLE QuantiteIngredients(
-	IDPlat INTEGER REFERENCES Plat(ID), 
+	IDPlat INTEGER REFERENCES Plat(ID),
 	NomIngredients VARCHAR(50)REFERENCES Ingredients(Nom),
 	Quantite FLOAT,
 	PRIMARY KEY (IDPlat, NomIngredients)
 );
-
-
-
-
-

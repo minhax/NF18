@@ -116,15 +116,15 @@ INSERT INTO Menu (ID,NomMenu) VALUES
 INSERT INTO Plat (ID,NomPlat,Categorie,t) VALUES
 (8,'Croustillant daubergines sur un panache de legumes','Viande','Plat Principal');
 INSERT INTO Plat (ID,NomPlat,Categorie,t) VALUES
-(9,'Soupe à loignon y croutons','Soupe','Entrée');
+(9,'Soupe à loignon y croutons','Soupe','Entree');
 INSERT INTO Plat (ID,NomPlat,Categorie,t) VALUES
-(10,'Gaspaccho','Soupe','Entrée');
+(10,'Gaspaccho','Soupe','Entree');
 INSERT INTO Plat (ID,NomPlat,Categorie,t) VALUES
 (11,'Pad Thaï','Nouilles','Plat Principal');
 INSERT INTO Plat (ID,NomPlat,Categorie,t) VALUES
-(12,'Moelleux au chocolat','Gâteau','Dessert');
+(12,'Moelleux au chocolat','Gateau','Dessert');
 INSERT INTO Plat (ID,NomPlat,Categorie,t) VALUES
-(13,'Baba au rhum','Gâteau','Dessert');
+(13,'Baba au rhum','Gateau','Dessert');
 
 INSERT INTO ContenuMenu (IDMenu, IDPlat) VALUES
 (5,10);
