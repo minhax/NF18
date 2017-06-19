@@ -46,6 +46,20 @@
 			                  <input type="submit" value="Enregistrer">
 			           		  </form>
 	                    	}
+	                    	<?php
+	                    	elseif ($nom=='Entree') {
+	                    	?>
+	                    		<form action="Reponse_Ajout_Entree.php" method="post">
+			                  <input name="idEntree" type="hidden" value="<?php echo ($modif? $Plat['ID'] : '-1') ?>">
+			                  <input name="type" type="hidden" value="<?php echo ($modif? $Plat['type'] : 'Entree') ?>">
+			                  <p>Nom du Plat Principal : <input name="nomEntree" type="text" placeholder="Nom de l'entree" size="15" </p>
+			                  <p>Catégorie : <input name="categorie" type="text" placeholder="categorie" size="15"</p>
+			                  <p>Prix du plat : <input name="prixEntree" type="text" placeholder="Prix" size="15"</p>
+			                  <p>Ajout à une carte? : <input name="AjoutCarte" type="text" size="25"</p>
+			                  <input type="submit" value="Enregistrer">
+			           		  </form>
+	                    	}
+
                 } 
             <?php
                     $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
