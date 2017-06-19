@@ -7,6 +7,7 @@
         <?php
         <form action = "Ajout_Carte.php" method="post">
           Nom de la carte : <input type = "text" name = "nom"><br />
+          Nom de la carte : <input type = "text" name = "nom"><br />
           <input type = "submit" value = "Envoyer">
           </form>
         ?>
