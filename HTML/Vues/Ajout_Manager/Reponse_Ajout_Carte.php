@@ -11,7 +11,7 @@
         ?>
                     <?php
                     /** Connexion **/
-                    $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=test', 'Ajout_carte', 'manager');
+                    $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
                     /** Préparation et exécution de la requête **/
                     $sql = "FAIRE LA REQUETE SQL DAJOUT";
                     $result = $connexion->prepare($sql);

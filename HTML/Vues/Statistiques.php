@@ -8,7 +8,7 @@
               <h3>Classement des plats les plus commandés<strong></h3>
                       <?php
                           /** Connexion **/
-                          $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=dbnf17p123', 'nf17p122', '/*MDP*/');
+                          $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
                           /** Préparation et exécution de la requête **/
                           $sql = "SELECT P.NomPlat, sum(QE.Quantite) AS quantite
                                   FROM Plat P, Menu M, ContenuMenu CM, QuantiteElem QE
@@ -34,7 +34,7 @@
                 <h3> Les plats a base de viande sont-ils plus commandes que les plats à base de poisson?<strong> </h3>
                       <?php
                           /** Connexion **/
-                          $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Manager', 'public');
+                          $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                           /** Préparation et exécution de la requête **/
                           $sql = "SELECT P.Categorie, COUNT(P.Categorie) AS Quantite  /**fonctionne?**/
@@ -63,7 +63,7 @@
                       <h3> Il y a t il plus de plats commandes a base de viande qu'a base de poisson? <strong> </h3>
                         <?php
                             /** Connexion **/
-                            $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Client', 'public');
+                            $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                             /** Préparation et exécution de la requête **/
                             $sql = "SELECT P.Categorie, COUNT(P.NomPlat) AS quantite
@@ -86,7 +86,7 @@
                         <h3> Somme moyenne depensee pour les desserts pour chaque commande <strong> </h3>
                           <?php
                               /** Connexion **/
-                              $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Client', 'public');
+                              $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                               /** Préparation et exécution de la requête **/
                               $sql = "SELECT P.t AVG(SUM(PR.Prix)*QE.Quantite) AS moyenne

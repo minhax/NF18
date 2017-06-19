@@ -9,7 +9,7 @@
               <h2>Affichage des menus présents sur les cartes dans les restaurants<strong></h2>
                       <?php
                           /** Connexion **/
-                          $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Client', 'public');
+                          $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                           /** Préparation et exécution de la requête **/
                           $sql = "SELECT R.Nom,C.Nom,M.NomMenu,P.Prix
@@ -33,7 +33,7 @@
                 <h2> Affichage des Plats à la carte:<strong> </h2>
                       <?php
                           /** Connexion **/
-                          $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Client', 'public');
+                          $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                           /** Préparation et exécution de la requête **/
                           $sql = "SELECT Carte.Nom,Plat.NomPlat,Prix.Prix
@@ -55,7 +55,7 @@
                       <h2> Affichage des boissons <strong> </h2>
                         <?php
                             /** Connexion **/
-                            $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Client', 'public');
+                            $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                             /** Préparation et exécution de la requête **/
                             $sql = "SELECT C.Nom,B.NomBoisson,P.Prix
