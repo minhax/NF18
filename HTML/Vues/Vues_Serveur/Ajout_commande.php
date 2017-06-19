@@ -5,12 +5,13 @@
     </head>
         <body>
         	<div>
-            <h1> Que voulez vous modifier dans les cartes?<strong> </h1>
+            <h1> Ajout d'une commande<strong> </h1>
 
-              <tr id="linedrop" height="28" >
-  <td width="84" class="menu1"></td>
-  <td width="98" class="menu1"><a href="tarifs.php"><b>Ajouter une commande</b></a></td>
-   </tr>
+               <form action = "Reponse_Ajout_Commande.php" method="post">
+          Restaurant : <input type = "text" name = "Restaurant"><br />
+          Date  : <input type = "text" name = "Date"><br />
+          <input type = "submit" value = "Envoyer">
+          </form>
 
 </div>
 </body>

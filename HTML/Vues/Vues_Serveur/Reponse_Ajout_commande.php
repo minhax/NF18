@@ -4,13 +4,16 @@
     </head>
         <body>
         	<div>
-            <h1> Insertion de la carte réussie<strong> </h1>
-            <?php if (isset($_POST['Restaurant']) && isset($_POST['Date'])) {
+            <h1> Insertion de la commande <strong> </h1>
+                    <?php
+                    // on teste la déclaration de nos variables
+      if (isset($_POST['Restaurant']) && isset($_POST['Date'])) {
         $Resto = $_POST['Restaurant'];
         $Date = $_POST['Date']; 
-        ?>
+        /* Il faut trouver comment on peut récupérer le dernier identifiant de notre BDD et l'incrémenter de 1. Puis il faudra juste insert dans la table Commande */
+                     ?>
                     <?php
-                    /** Connexion **/
+                            /** Connexion **/
                     $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=test', 'Ajout_carte', 'manager');
                     /** Préparation et exécution de la requête **/
                     $sql = "FAIRE LA REQUETE SQL DAJOUT";
@@ -18,7 +21,7 @@
                     $result->execute();
                     /** Traitement du résultat **/
                     if ($result) {
-                      echo "'Nouvelle carte insérée";
+                      echo "'Nouvelle commande insérée";
                     }
                     else {
                       echo "Erreur lors de l'insertion";

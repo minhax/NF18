@@ -4,7 +4,7 @@
     </head>
         <body>
         	<?php require_once './src/view/menu.php'; ?>
-        	<div> /**Div est un conteneur **/
+        	<div>
             <h1> Bienvenue chez Hell's Kitchen <strong> </h1>
               <h2>Affichage des menus présents sur les cartes dans les restaurants<strong></h2>
                       <?php

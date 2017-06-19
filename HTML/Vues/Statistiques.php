@@ -1,14 +1,14 @@
 <html lang="fr">
     <head>
-      <p> Cartes </p>
+      <h1> Cartes </h1>
     </head>
         <body>
-        	<div> /**Div est un conteneur **/
-            <h1> Statistiques <strong> </h1>
-              <h2>Classement des plats les plus commandés<strong></h2>
+        	<div>
+            <h2> Statistiques <strong> </h2>
+              <h3>Classement des plats les plus commandés<strong></h3>
                       <?php
                           /** Connexion **/
-                          $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Manager', 'public');
+                          $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=dbnf17p123', 'nf17p122', '/*MDP*/');
                           /** Préparation et exécution de la requête **/
                           $sql = "SELECT P.NomPlat, sum(QE.Quantite) AS quantite
                                   FROM Plat P, Menu M, ContenuMenu CM, QuantiteElem QE
@@ -31,7 +31,7 @@
                           /** Déconnexion **/
                           $connexion=null;
                       ?>
-                <h2> Les plats a base de viande sont-ils plus commandes que les plats à base de poisson?<strong> </h2>
+                <h3> Les plats a base de viande sont-ils plus commandes que les plats à base de poisson?<strong> </h3>
                       <?php
                           /** Connexion **/
                           $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Manager', 'public');
@@ -60,7 +60,7 @@
                           /** Déconnexion **/
                           $connexion=null;
                       ?>
-                      <h2> Il y a t il plus de plats commandes a base de viande qu'a base de poisson? <strong> </h2>
+                      <h3> Il y a t il plus de plats commandes a base de viande qu'a base de poisson? <strong> </h3>
                         <?php
                             /** Connexion **/
                             $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Client', 'public');
@@ -83,7 +83,7 @@
                             /** Déconnexion **/
                             $connexion=null;
                         ?>
-                        <h2> Somme moyenne depensee pour les desserts pour chaque commande <strong> </h2>
+                        <h3> Somme moyenne depensee pour les desserts pour chaque commande <strong> </h3>
                           <?php
                               /** Connexion **/
                               $connexion = new PDO('pgsql:host=localhost;port=5432;dbname=Hells Kitchen', 'Client', 'public');
