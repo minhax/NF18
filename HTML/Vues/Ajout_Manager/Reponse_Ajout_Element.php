@@ -26,9 +26,22 @@
 	                    	?>
 	                    	<form action="Reponse_Ajout_Boisson.php" method="post">
 			                  <input name="idBoisson" type="hidden" value="<?php echo ($modif? $Boisson['ID'] : '-1') ?>">
-			                  <p>Nom de la boisson : <input name="nomBoisson" type="text" placeholder="Nom du menu" size="15" </p>
+			                  <p>Nom de la boisson : <input name="nomBoisson" type="text" placeholder="Nom de la boisson" size="15" </p>
 			                  <p>Volume : <input name="volume" type="text" placeholder="Prix" size="15"</p>
 			                  <p>Prix de la boisson : <input name="prixBoisson" type="text" placeholder="Prix" size="15"</p>
+			                  <p>Ajout à une carte? : <input name="AjoutCarte" type="text" size="25"</p>
+			                  <input type="submit" value="Enregistrer">
+			           		  </form>
+	                    	}
+	                    	<?php
+	                    	elseif ($nom=='Plat Principal') {
+	                    	?>
+	                    		<form action="Reponse_Ajout_PP.php" method="post">
+			                  <input name="idPP" type="hidden" value="<?php echo ($modif? $Plat['ID'] : '-1') ?>">
+			                  <input name="type" type="hidden" value="<?php echo ($modif? $Plat['type'] : 'Plat Principal') ?>">
+			                  <p>Nom du Plat Principal : <input name="nomPP" type="text" placeholder="Nom du PP" size="15" </p>
+			                  <p>Catégorie : <input name="categorie" type="text" placeholder="categorie" size="15"</p>
+			                  <p>Prix du plat : <input name="prixPP" type="text" placeholder="Prix" size="15"</p>
 			                  <p>Ajout à une carte? : <input name="AjoutCarte" type="text" size="25"</p>
 			                  <input type="submit" value="Enregistrer">
 			           		  </form>
