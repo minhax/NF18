@@ -4,13 +4,13 @@
     </head>
         <body>
         	<div>
-            <h1> Plat Principal<strong> </h1>
+            <h1> Dessert<strong> </h1>
             <?php //On teste si les données nomMenu et prixMenu ont bien étaient rentrées par l'utilisateur
-                 if (isset($_POST['nomPP'] && $_POST['categorie'] && $_POST['prixPP'] && $_POST['AjoutCarte'])) {
-                 	  $ID =$_POST['idPP'];
+                 if (isset($_POST['nomDessert'] && $_POST['categorie'] && $_POST['prixDessert'] && $_POST['AjoutCarte'])) {
+                 	  $ID =$_POST['idDessert'];
                     $type=$_POST['type'];
-                    $nom = $_POST['nomPP'];
-                    $prix = $_POST['prixPP'];
+                    $nom = $_POST['nomDessert'];
+                    $prix = $_POST['prixDessert'];
                     $categorie = $_POST['categorie'];
                     $Carte =$_POST['AjoutCarte']; 
                 } 
@@ -25,7 +25,7 @@
                     $result = $connexion->prepare($sql);
                     $result->execute();
                     if ($result) {
-                      echo "'Nouveau plat principal inséré";
+                      echo "'Nouveau dessert inséré";
                     }
                     else {
                       echo "Erreur lors de l'insertion";

@@ -10,7 +10,7 @@
                 <OPTION>Menu
                 <OPTION>Boisson
                 <OPTION>Plat Principal
-                <OPTION>Entrée
+                <OPTION>Entree
                 <OPTION>Dessert
                 </SELECT>
                 <input type="submit" value="Enregistrer">

@@ -1,6 +1,3 @@
-<p>Nom de l'element : <input name="nomElement" type="text" placeholder="Nom de la carte" size="15"
-                <br/> </p>
-
 <html lang="fr">
     <head>
       <p> Insertion réussie </p>
@@ -52,30 +49,27 @@
 	                    		<form action="Reponse_Ajout_Entree.php" method="post">
 			                  <input name="idEntree" type="hidden" value="<?php echo ($modif? $Plat['ID'] : '-1') ?>">
 			                  <input name="type" type="hidden" value="<?php echo ($modif? $Plat['type'] : 'Entree') ?>">
-			                  <p>Nom du Plat Principal : <input name="nomEntree" type="text" placeholder="Nom de l'entree" size="15" </p>
+			                  <p>Nom de l'entree : <input name="nomEntree" type="text" placeholder="Nom de l'entree" size="15" </p>
 			                  <p>Catégorie : <input name="categorie" type="text" placeholder="categorie" size="15"</p>
 			                  <p>Prix du plat : <input name="prixEntree" type="text" placeholder="Prix" size="15"</p>
 			                  <p>Ajout à une carte? : <input name="AjoutCarte" type="text" size="25"</p>
 			                  <input type="submit" value="Enregistrer">
 			           		  </form>
 	                    	}
+	                    	<?php
+	                    	elseif ($nom=='Dessert') {
+	                    	?>
+	                    		<form action="Reponse_Ajout_Entree.php" method="post">
+			                  <input name="idDessert" type="hidden" value="<?php echo ($modif? $Plat['ID'] : '-1') ?>">
+			                  <input name="type" type="hidden" value="<?php echo ($modif? $Plat['type'] : 'Dessert') ?>">
+			                  <p>Nom du dessert : <input name="nomDessert" type="text" placeholder="Nom de l'entree" size="15" </p>
+			                  <p>Catégorie : <input name="categorie" type="text" placeholder="categorie" size="15"</p>
+			                  <p>Prix du plat : <input name="prixDessert" type="text" placeholder="Prix" size="15"</p>
+			                  <p>Ajout à une carte? : <input name="AjoutCarte" type="text" size="25"</p>
+			                  <input type="submit" value="Enregistrer">
+			           		  </form>
+	                    	}
 
                 } 
-            <?php
-                    $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
-                    $sql = "INSERT INTO Carte (Nom) VALUES
-                     ( $nom);
-                     INSERT INTO Periode (IDRestau, NomCarte,DateDebut,DateFin) VALUES
-                     (";
-                    $result = $connexion->prepare($sql);
-                    $result->execute();
-                    if ($result) {
-                      echo "'Nouvelle carte insérée";
-                    }
-                    else {
-                      echo "Erreur lors de l'insertion";
-                    }
-                    $connexion=null;
-            ?>
         </body>
 </html>
