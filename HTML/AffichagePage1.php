@@ -6,7 +6,7 @@
       </head>
           <body>
             <h1>
-            Manager ou Client?<br> </h1>
+            Manager, Serveur ou Client?<br> </h1>
             <p></p>
             <form action = "Manager_Client.php" method="post">
               Votre nom : <input type = "text" name = "nom"><br />
