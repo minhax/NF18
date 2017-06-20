@@ -1,12 +1,12 @@
 <html lang="fr">
     <head>
-      <p> Insertion réussie </p>
+      <p> Insertion reussie </p>
     </head>
         <body>
         	<div>
             <h1> Plat Principal<strong> </h1>
             <?php //On teste si les données nomMenu et prixMenu ont bien étaient rentrées par l'utilisateur
-                 if (isset($_POST['nomPP'] && $_POST['categorie'] && $_POST['prixPP'] && $_POST['AjoutCarte'])) {
+                 if ($_POST['nomPP']!=null && $_POST['categorie']!=null && $_POST['prixPP']!=null && $_POST['AjoutCarte']!=null0) {
                  	  $ID =$_POST['idPP'];
                     $type=$_POST['type'];
                     $nom = $_POST['nomPP'];

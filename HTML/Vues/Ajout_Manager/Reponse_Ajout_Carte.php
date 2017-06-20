@@ -1,15 +1,14 @@
 <html lang="fr">
     <head>
-      <p> Insertion réussie </p>
+      <title> Ajout d'une carte </title>
     </head>
         <body>
-        	<div>
-            <h1> Insertion de la carte réussie<strong> </h1>
+            <h1> Insertion de la carte reussie<strong> </h1>
             <?php
-                 if (isset($_POST['nom']) && isset($_POST['DateDebut']) && isset($_POST['DateFin'])) {
-                    $nom = $_POST['nom'];
+                 if (null!== $_POST['nomCarte'] && null!== $_POST['DateDebut'] && null!==$_POST['DateFin']) {
+                    $nom = $_POST['nomCarte'];
                     $DateDebut = $_POST['DateDebut'];
-                    $DateFin = $_POST['DateFin']; 
+                    $DateFin = $_POST['DateFin']; }
              ?>
             <?php
                     $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
@@ -20,7 +19,7 @@
                     $result = $connexion->prepare($sql);
                     $result->execute();
                     if ($result) {
-                      echo "'Nouvelle carte insérée";
+                      echo "'Nouvelle carte inseree";
                     }
                     else {
                       echo "Erreur lors de l'insertion";

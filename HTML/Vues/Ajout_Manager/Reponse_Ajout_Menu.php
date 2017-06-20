@@ -1,12 +1,12 @@
 <html lang="fr">
     <head>
-      <p> Insertion réussie </p>
+      <p> Insertion reussie </p>
     </head>
         <body>
         	<div>
-            <h1> Insertion du menu réussi<strong> </h1>
+            <h1> Insertion du menu reussi<strong> </h1>
             <?php //On teste si les données nomMenu et prixMenu ont bien étaient rentrées par l'utilisateur
-                 if (isset($_POST['nomMenu'] && $_POST['prixMenu'] && isset($_POST['AjoutCarte']) {
+                 if ($_POST['nomMenu']!=null && $_POST['prixMenu']!=null && $_POST['AjoutCarte']!=null) {
                  	$ID =$_POST['idElement'];
                     $menu = $_POST['nomMenu'];
                     $prix = $_POST['prixMenu'];

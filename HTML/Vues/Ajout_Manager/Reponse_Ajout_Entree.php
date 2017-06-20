@@ -1,12 +1,12 @@
 <html lang="fr">
     <head>
-      <p> Insertion réussie </p>
+      <title> Insertion reussie </title>
     </head>
         <body>
         	<div>
             <h1> Entree<strong> </h1>
             <?php //On teste si les données nomMenu et prixMenu ont bien étaient rentrées par l'utilisateur
-                 if (isset($_POST['nomEntree'] && $_POST['categorie'] && $_POST['prixEntree'] && $_POST['AjoutCarte'])) {
+                 if ($_POST['nomEntree']!=null && $_POST['categorie']!=null && $_POST['prixEntree']!=null && $_POST['AjoutCarte']!=null) {
                  	  $ID =$_POST['idEntree'];
                     $type=$_POST['type'];
                     $nom = $_POST['nomEntree'];
@@ -24,7 +24,7 @@
                     $result = $connexion->prepare($sql);
                     $result->execute();
                     if ($result) {
-                      echo "'Nouvelle entree insérée";
+                      echo "'Nouvelle entree inseree";
                     }
                     else {
                       echo "Erreur lors de l'insertion";
@@ -33,3 +33,4 @@
             ?>
         </body>
 </html>
+

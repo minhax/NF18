@@ -1,0 +1,16 @@
+<html>
+  <head>
+      <title>Ajout d'une Carte</title>
+  </head>
+  <body>
+      <h1> Veuillez entrer les informations </h1>
+        <form action="Reponse_Ajout_Carte.php" method="get">
+                <input name="action" type="hidden" value="enregistrerCarte">
+                <input name="idCarte" type="hidden" value="">
+                  <p>Nom de la Carte : <input name ="nomCarte"  type="text" placeholder="Nom de la carte" size="15"> 
+                  <p>Date de debut : <input name="dateDebut" type="text" placeholder="jj/mm/aaaa" size="15">
+                  <p>Date de fin : <input name="dateFin" type="text" placeholder="jj/mm/aaaa" size="15">
+                <input type="submit" value="Enregistrer">
+            </form>
+  </body>
+</html>
