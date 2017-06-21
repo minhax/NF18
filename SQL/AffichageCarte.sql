@@ -1,20 +1,77 @@
-DROP VIEW VMenu;
-DROP VIEW VPlatCarte;
-DROP VIEW VBoisson;
-DROP VIEW IngrMEnu;
-
---Affichage des menus présents sur les cartes dans les restaurants
-CREATE VIEW VMenu (NomRestaurant,NomCarte,MenuID,NomMenu,Prix ) AS
-SELECT R.Nom,C.Nom,M.ID,M.NomMenu,P.Prix
-FROM Menu M,Prix P,Carte C, Restaurant R, Periode PE
-Where M.ID = P.IDElement
-AND PE.IDRestau = R.ID
-AND P.NomCarte=C.Nom
-group BY M.NomMenu,R.Nom,C.Nom,M.ID,M.NomMenu,P.Prix
+--Affichage de chaque Carte et de sa période de disponibilité dans chaque restaurant
+CREATE VIEW VResto_Carte (NomRestaurant,NomCarte,Debut, Fin) AS
+SELECT R.Nom,C.Nom,PE.DateDebut, PE.DateFin
+FROM Carte C, Restaurant R, Periode PE
+WHERE PE.IDRestau = R.ID
+AND PE.NomCarte=C.Nom
 ORDER BY R.Nom;
+
+SELECT *
+FROM VResto_Carte;
+
+
+--Affichage de chaque carte, des menus proposés et de leurs prix
+DROP VIEW VCarte_Menu;
+
+CREATE VIEW VCarte_Menu (NomCarte,NomMenu,Prix) AS
+SELECT C.Nom,M.NomMenu,Pr.Prix
+FROM Carte C, Menu M, Prix Pr
+WHERE C.Nom=Pr.NomCarte
+
+AND Pr.IDElement=M.ID
+ORDER BY C.Nom;
+
+SELECT *
+FROM VCarte_Menu;
+
+--Affichage de chaque carte, des Plats proposés et de leurs prix
+
+DROP VIEW VCarte_Plat;
+
+CREATE VIEW VCarte_Plat (NomCarte,NomPlat, Prix) AS
+SELECT C.Nom, P.NomPlat, Pr.Prix
+FROM Carte C, Plat P, Prix Pr
+WHERE C.Nom=Pr.NomCarte
+AND Pr.IDElement=P.ID
+ORDER BY C.Nom;
+
+SELECT *
+FROM VCarte_Plat;
+
+
+--Affichage de chaque carte, des Boissons proposées et de leurs prix
+
+DROP VIEW VCarte_Boisson;
+
+CREATE VIEW VCarte_Boisson (NomCarte,NomBoisson, Prix) AS
+SELECT C.Nom, B.NomBoisson, Pr.Prix
+FROM Carte C, Boisson B, Prix Pr
+WHERE C.Nom=Pr.NomCarte
+AND Pr.IDElement=B.ID
+ORDER BY C.Nom;
+
+SELECT *
+FROM VCarte_Boisson;
+
+--Pour chaque menu, affichage de tout ses constituants
+DROP VIEW VMenu_Plat;
+
+CREATE VIEW VMenu_Plat (NomMenu,Plats) AS
+SELECT M.NomMenu, P.NomPlat
+FROM Menu M, Plat P, ContenuMenu CM
+WHERE CM.IDMenu=M.ID
+AND CM.IDPlat=P.ID
+
+ORDER BY M.NomMenu;
+
+SELECT *
+FROM VMenu_Plat;
+
+
 
  
 --Affichage des Plats à la carte:
+/*
  CREATE VIEW VPlatCarte (NomCarte,PlatID,NomPlat,Prix) AS
 SELECT Carte.Nom,Plat.ID,Plat.NomPlat,Prix.Prix
  FROM Plat,Prix,Carte
@@ -42,7 +99,7 @@ SELECT* FROM VMENU;
 SELECT* FROM VPlatCarte;
 SELECT* FROM VBoisson;
 SELECT* FROM IngrMenu;
-
+*/
 
 --Affichage des
 /*
