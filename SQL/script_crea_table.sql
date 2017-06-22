@@ -1,6 +1,6 @@
 
 CREATE TABLE Restaurant(
-  ID INTEGER PRIMARY KEY,
+  ID SERIAL PRIMARY KEY,
   Adresse VARCHAR(50) NOT NULL,
   Ville VARCHAR(50) NOT NULL,
   Pays VARCHAR(50) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE Restaurant(
 
 
 CREATE TABLE Commande(
-  ID INTEGER,
+  ID SERIAL,
   IDRest INTEGER REFERENCES Restaurant(ID),
   DateCommande TIMESTAMP NOT NULL,
   PRIMARY KEY (ID,IDRest)
@@ -18,7 +18,7 @@ CREATE TABLE Commande(
 
 
 CREATE TABLE Element(
- IDElement INTEGER PRIMARY KEY
+ IDElement SERIAL PRIMARY KEY
 );
 
 CREATE TABLE QuantiteElem(
@@ -35,7 +35,7 @@ CREATE TABLE QuantiteElem(
 
 
 CREATE TABLE Boisson(
-   ID INTEGER REFERENCES Element(IDElement),
+   ID SERIAL REFERENCES Element(IDElement),
    NomBoisson VARCHAR(50) NOT NULL,
    Volume FLOAT NOT NULL,
    PRIMARY KEY (ID),
@@ -45,7 +45,7 @@ CREATE TABLE Boisson(
 
 
 CREATE TABLE Menu(
-   ID INTEGER REFERENCES Element(IDElement) PRIMARY KEY,
+   ID SERIAL REFERENCES Element(IDElement) PRIMARY KEY,
    NomMenu VARCHAR(50) UNIQUE NOT NULL
 );
 
@@ -54,7 +54,7 @@ CREATE TYPE Choix AS ENUM ('Plat Principal', 'Entree','Dessert');
 
 
 CREATE TABLE Plat(
-   ID INTEGER REFERENCES Element(IDELement) PRIMARY KEY,
+   ID SERIAL REFERENCES Element(IDELement) PRIMARY KEY,
    NomPlat VARCHAR(50) UNIQUE NOT NULL,
    Categorie VARCHAR(50),
    t choix
@@ -87,7 +87,7 @@ CREATE TABLE Prix(
    Prix NUMERIC(5,2) NOT NULL,
    PRIMARY KEY (IDElement,NomCarte)
 );
-
+/*
 CREATE TABLE Ingredients (
 	Nom VARCHAR(50) PRIMARY KEY,
 	Solide bool
@@ -98,4 +98,4 @@ CREATE TABLE QuantiteIngredients(
 	NomIngredients VARCHAR(50)REFERENCES Ingredients(Nom),
 	Quantite FLOAT,
 	PRIMARY KEY (IDPlat, NomIngredients)
-);
+);*/

@@ -8,7 +8,7 @@
             <h1>
             Manager, Serveur ou Client?<br> </h1>
             <p></p>
-            <form action = "Manager_Client.php" method="post">
+            <form action = "Manager_Client_Serveur.php" method="post">
               Votre nom : <input type = "text" name = "nom"><br />
               Votre fonction : <input type = "text" name = "fonction"><br />
               <input type = "submit" value = "Envoyer">

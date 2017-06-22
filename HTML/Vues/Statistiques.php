@@ -5,21 +5,21 @@
         <body>
         	<div>
             <h2> Statistiques <strong> </h2>
-              <h3>Classement des plats les plus commandés<strong></h3>
+              <h3>Classement des plats les plus commandes<strong></h3>
                       <?php
                           /** Connexion **/
                           $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
                           /** Préparation et exécution de la requête **/
-                          $sql = "SELECT P.NomPlat, sum(QE.Quantite) AS quantite
-                                  FROM Plat P, Menu M, ContenuMenu CM, QuantiteElem QE
-                                  WHERE (QE.IDElement=P.ID
-                                  AND CM.IDPlat=P.ID
-                                  AND M.ID=CM.IDMenu)
-                                  OR (QE.IDElement = M.ID
-                                  AND P.ID = CM.IDPlat
-                                  AND CM.IDMenu = M.ID)
-                                  GROUP BY P.NomPlat
-                                  ORDER BY SUM(QE.Quantite) DESC";
+                          $sql = "SELECT P.NomPlat, sum(QE.Quantite)
+					FROM Plat P, Menu M, ContenuMenu CM, QuantiteElem QE
+					WHERE (QE.IDElement=P.ID
+					AND CM.IDPlat=P.ID
+					AND M.ID=CM.IDMenu)
+					OR (QE.IDElement = M.ID
+					AND P.ID = CM.IDPlat
+					AND CM.IDMenu = M.ID)
+					GROUP BY P.NomPlat
+					ORDER BY SUM(QE.Quantite) DESC";
                           $resultset = $connexion->prepare($sql);
                           $resultset->execute();
 
@@ -66,12 +66,17 @@
                             $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                             /** Préparation et exécution de la requête **/
-                            $sql = "SELECT P.Categorie, COUNT(P.NomPlat) AS quantite
-                            FROM Plat P, QuantiteElem QE
-                            WHERE (P.Categorie='poisson'OR P.Categorie='viande')
-                            AND QE.IDElement=P.ID
-                            GROUP BY P.Categorie
-                            HAVING COUNT(QE.Quantite)>0";
+                            $sql = "SELECT P.Categorie, SUM(QE.Quantite)
+					FROM Plat P, Menu M, ContenuMenu CM, QuantiteElem QE
+					WHERE ((QE.IDElement=P.ID
+					AND CM.IDPlat=P.ID
+					AND M.ID=CM.IDMenu)
+					OR (QE.IDElement = M.ID
+					AND P.ID = CM.IDPlat
+					AND CM.IDMenu = M.ID))
+					AND(P.Categorie='Poisson'OR P.Categorie='Viande')
+					GROUP BY P.Categorie
+					ORDER BY SUM(QE.Quantite) DESC";
                             $resultset = $connexion->prepare($sql);
                             $resultset->execute();
 
@@ -89,12 +94,13 @@
                               $connexion = new PDO('pgsql:host=tuxa.sme.utc;port=5432;dbname=nf17p122', 'TaeORGh5');
 
                               /** Préparation et exécution de la requête **/
-                              $sql = "SELECT P.t AVG(SUM(PR.Prix)*QE.Quantite) AS moyenne
-                                      FROM Plat P, Prix Pr, QuantiteElem QE
-                                      WHERE P.t='Dessert'
-                                      AND QE.IDElement=P.ID
-                                      AND Pr.IDElement=P.ID
-                                      GROUP BY P.t";
+                              $sql = "SELECT P.t, AVG(PR.Prix*QE.Quantite) 
+						AS DepenseMoyenneDessert
+						FROM Plat P, Prix Pr, QuantiteElem QE
+						WHERE P.t='Dessert'
+						AND QE.IDElement=P.ID
+						AND Pr.IDElement=P.ID
+						GROUP BY P.t";
                               $resultset = $connexion->prepare($sql);
                               $resultset->execute();
 
