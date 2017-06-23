@@ -137,7 +137,6 @@ $dbconn = pg_connect("host=tuxa.sme.utc dbname=dbnf17p122 user=nf17p122 password
                         		echo "</table>\n";
 
                               echo  $row['e1.t'] . $row['DepenseMoyenneDessert'] ;
-                              }
                               /** Déconnexion **/
                               pg_free_result($result);
     			                    pg_close($dbconn);

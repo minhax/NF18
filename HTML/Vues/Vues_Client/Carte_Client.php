@@ -5,12 +5,44 @@
         <body>
         	<div>
             <h1> Bienvenue chez Hell's Kitchen <strong> </h1>
+<h2>Restaurants /ID<strong></h2>
+<?php
+                            /** Connexion **/
+                            $dbconn = pg_connect("host=tuxa.sme.utc dbname=dbnf17p122 user=nf17p122 password=TaeORGh5") or die('Connexion impossible : ' . pg_last_error());
+
+                            /** Préparation et exécution de la requête **/
+                            $query = "SELECT R.Nom,R.ID
+					FROM Restaurant R;";
+                            $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+	echo "<table>\n";
+			echo "<tr>
+			       <th>Nom du Restaurant</th>
+			       <th>ID du restaurant</th>
+			       
+			   </tr>";
+
+                            /** Traitement du résultat **/
+                            while ($row = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+			echo "\t<tr>\n";
+			foreach ($row as $col_value) {
+			        echo "\t\t<td>$col_value</td>\n";
+			    }
+			    echo "\t</tr>\n";
+			}
+		echo "</table>\n";
+
+                            echo $row['R.Nom'] . $row['R.ID'];
+                            
+                            /** Déconnexion **/
+                            pg_free_result($result);
+    			  pg_close($dbconn);
+                        ?>
               <h2>Carte et sa periode de disponibilite dans chaque restaurant<strong></h2>
                       <?php
                           /** Connexion **/
 $dbconn = pg_connect("host=tuxa.sme.utc dbname=dbnf17p122 user=nf17p122 password=TaeORGh5") or die('Connexion impossible : ' . pg_last_error());
                           /** Préparation et exécution de la requête **/
-                          $query = "SELECT R.Nom,C.Nom,PE.DateDebut, PE.DateFin
+                          $query = "SELECT R.ID,R.Nom,C.Nom,PE.DateDebut, PE.DateFin
 					FROM Carte C, Restaurant R, Periode PE
 					WHERE PE.IDRestau = R.ID
 					AND PE.NomCarte=C.Nom
@@ -20,7 +52,7 @@ $dbconn = pg_connect("host=tuxa.sme.utc dbname=dbnf17p122 user=nf17p122 password
  
 		echo "<table>\n";
 			echo "<tr>
-			       <th>Nom Restaurant</th>
+				<th>ID Restaurant</th>
 			       <th>Nom Carte</th>
 			       <th>Date Debut</th>
 			       <th>Date Fin</th>
@@ -36,11 +68,12 @@ $dbconn = pg_connect("host=tuxa.sme.utc dbname=dbnf17p122 user=nf17p122 password
 			}
 		echo "</table>\n";
 
-                          echo $row['R.Nom'] .$row['C.Nom'] . $row['PE.DateDebut'] . $row['PE.DateFin'] ;
+                          echo $row['R.ID'].$row['R.Nom'] .$row['C.Nom'] . $row['PE.DateDebut'] . $row['PE.DateFin'] ;
                           /** Déconnexion **/
                          pg_free_result($result);
     			  pg_close($dbconn);
                       ?>
+
                 <h2> Menus des Cartes<strong> </h2>
                       <?php
                           /** Connexion **/
